@@ -50,6 +50,18 @@
           </div>
         </div>
       </section>
+
+      <section id="table" class="mb-16">
+        <h2 class="text-3xl font-extrabold text-primary mb-6 border-b border-border pb-2">Reusable Table</h2>
+        <app-table-toolbar>
+          <h3 toolbar-title class="text-xl font-semibold text-primary">Projects</h3>
+          <div toolbar-actions>
+            <app-input placeholder="Search projects..."></app-input>
+            <app-button>Add Project</app-button>
+          </div>
+        </app-table-toolbar>
+        <app-table [items]="projects" [columns]="projectColumns"></app-table>
+      </section>
     </div>
   </main>
 </div>

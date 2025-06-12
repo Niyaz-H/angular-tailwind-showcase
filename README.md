@@ -1,59 +1,65 @@
-# AngularTailwindShowcase
+# Angular & Tailwind CSS Component Showcase
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+This project is a demonstration of building a modern, reusable component library from scratch using Angular and Tailwind CSS. It serves as a portfolio piece to showcase best practices in frontend development, focusing on clean code, modularity, and a professional UI/UX, as requested by a potential client.
 
-## Development server
+**Live Demo:** [https://angular-tailwind-showcase-kudgvkll0-niyazs-projects-18a41509.vercel.app/](https://angular-tailwind-showcase-kudgvkll0-niyazs-projects-18a41509.vercel.app/)
 
-To start a local development server, run:
+## Core Concepts Demonstrated
 
-```bash
-ng serve
-```
+This showcase is built to align with the requirements of a modern ERP system's frontend, emphasizing:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+-   **No UI Libraries:** All components are built from the ground up using only Angular and Tailwind CSS for maximum control and a lightweight result.
+-   **Modularity & Reusability:** Components are designed to be highly reusable and configurable.
+-   **State Management with Signals:** Utilizes Angular's modern state management solution for clean and efficient data flow.
+-   **Clean & Modern UI:** A minimalist, professional design with a focus on user experience.
+-   **Dark Mode:** A fully functional, persistent dark mode toggle.
+-   **Handling Complex Data:** The table component demonstrates how to work with nested data structures.
 
-## Code scaffolding
+## Features & Components
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The showcase includes the following components:
 
-```bash
-ng generate component component-name
-```
+-   **Layout:** A professional layout with a sidebar and main content area.
+-   **Buttons:** A highly configurable button component with primary, secondary, outline, and disabled states.
+-   **Inputs:** Styled input components with focus states.
+-   **Cards:** A versatile card component for content grouping.
+-   **Table:** A generic, reusable table component that can display any data structure, including nested data. It is configured via a `columns` array.
+-   **Table Toolbar:** A toolbar component to house actions related to the table, such as search and filters.
+-   **Theme Service:** A service to manage the application's theme (light/dark mode) using Signals and browser localStorage.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Tech Stack
 
-```bash
-ng generate --help
-```
+-   **Angular (v20+)**: A powerful framework for building dynamic web applications.
+-   **Tailwind CSS (v4)**: A utility-first CSS framework for rapid UI development.
+-   **TypeScript**: For type safety and improved developer experience.
+-   **Signals**: For modern, fine-grained state management in Angular.
 
-## Building
+## Getting Started
 
-To build the project run:
+### Prerequisites
 
-```bash
-ng build
-```
+-   [Node.js](https://nodejs.org/) (v18 or higher)
+-   [Bun](https://bun.sh/) (or npm/yarn)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Installation
 
-## Running unit tests
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/Niyaz-H/angular-tailwind-showcase.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd angular-tailwind-showcase
+    ```
+3.  Install dependencies:
+    ```bash
+    bun install
+    ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Development Server
 
-```bash
-ng test
-```
+Run `bun start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Running end-to-end tests
+### Build
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Run `bun run build` to build the project. The build artifacts will be stored in the `dist/` directory.
