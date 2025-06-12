@@ -1,25 +1,37 @@
-<div class="p-4">
-  <h1 class="text-2xl font-bold mb-4">Component Showcase</h1>
+<div class="min-h-screen bg-gray-100 p-8">
+  <header class="text-center mb-12">
+    <h1 class="text-4xl font-extrabold text-gray-800">Angular Component Showcase</h1>
+    <p class="text-lg text-gray-600 mt-2">A collection of reusable components built with Tailwind CSS.</p>
+  </header>
 
-  <app-card>
-    <h2 class="text-xl font-bold mb-2">Buttons</h2>
-    <div class="flex space-x-2">
-      <app-button>Primary</app-button>
-      <app-button variant="secondary">Secondary</app-button>
-    </div>
-  </app-card>
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Buttons Card -->
+    <app-card>
+      <h2 class="text-2xl font-bold mb-4 text-gray-700">Buttons</h2>
+      <div class="flex flex-wrap gap-4 items-center">
+        <app-button>Primary</app-button>
+        <app-button variant="secondary">Secondary</app-button>
+        <app-button variant="outline">Outline</app-button>
+        <app-button [disabled]="true">Disabled</app-button>
+      </div>
+    </app-card>
 
-  <app-card>
-    <h2 class="text-xl font-bold mt-4 mb-2">Inputs</h2>
-    <div class="space-y-2">
-      <app-input placeholder="Standard Input"></app-input>
-      <app-input type="password" placeholder="Password Input"></app-input>
-    </div>
-  </app-card>
+    <!-- Inputs Card -->
+    <app-card>
+      <h2 class="text-2xl font-bold mb-4 text-gray-700">Inputs</h2>
+      <div class="space-y-4">
+        <app-input placeholder="Standard Input"></app-input>
+        <app-input type="password" placeholder="Password Input"></app-input>
+      </div>
+    </app-card>
 
-  <app-card>
-    <h2 class="text-xl font-bold mt-4 mb-2">State Management (Signals)</h2>
-    <p class="mb-2">Count: {{ state.count() }}</p>
-    <app-button (click)="state.increment()">Increment</app-button>
-  </app-card>
+    <!-- State Management Card -->
+    <app-card>
+      <h2 class="text-2xl font-bold mb-4 text-gray-700">State Management (Signals)</h2>
+      <div class="flex items-center justify-between">
+        <p class="text-lg">Count: <span class="font-bold text-blue-600">{{ state.count() }}</span></p>
+        <app-button (click)="state.increment()">Increment</app-button>
+      </div>
+    </app-card>
+  </main>
 </div>
