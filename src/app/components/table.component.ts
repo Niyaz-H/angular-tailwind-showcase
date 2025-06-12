@@ -12,23 +12,25 @@ export interface ColumnConfig<T> {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="overflow-x-auto bg-card border border-border rounded-lg">
-      <table class="min-w-full divide-y divide-border">
-        <thead class="bg-secondary">
-          <tr>
-            <th *ngFor="let col of columns" scope="col" class="px-6 py-3 text-left text-xs font-medium text-secondary-foreground uppercase tracking-wider">
-              {{ col.header }}
-            </th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-border">
-          <tr *ngFor="let item of items" class="hover:bg-accent transition-colors">
-            <td *ngFor="let col of columns" class="px-6 py-4 whitespace-nowrap text-sm text-foreground">
-              {{ resolveValue(item, col) }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="overflow-hidden bg-card/50 backdrop-blur-sm rounded-b-2xl">
+      <div class="overflow-x-auto">
+        <table class="min-w-full">
+          <thead class="bg-secondary/50 backdrop-blur-sm border-b border-border/30">
+            <tr>
+              <th *ngFor="let col of columns" scope="col" class="px-8 py-6 text-left text-xs font-semibold text-secondary-foreground uppercase tracking-wider">
+                {{ col.header }}
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border/20">
+            <tr *ngFor="let item of items; let i = index" class="hover:bg-accent/30 transition-all duration-200 ease-in-out">
+              <td *ngFor="let col of columns" class="px-8 py-6 text-sm text-foreground">
+                {{ resolveValue(item, col) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   `,
 })

@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-card',
   standalone: true,
   template: `
-    <div class="bg-card text-card-foreground border border-border shadow-lg rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
-      <div class="p-6">
+    <div class="bg-card/60 backdrop-blur-sm text-card-foreground border border-border/50 shadow-lg shadow-black/5 rounded-2xl overflow-hidden transform hover:scale-[1.02] hover:shadow-xl hover:shadow-black/10 transition-all duration-300 ease-out hover:border-border/80">
+      <div class="p-8">
         <ng-content></ng-content>
       </div>
     </div>

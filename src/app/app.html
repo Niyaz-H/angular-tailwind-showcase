@@ -1,67 +1,263 @@
 <div class="flex h-screen bg-background text-foreground">
   <!-- Sidebar -->
-  <aside class="w-64 bg-card border-r border-border p-6 flex flex-col">
-    <h1 class="text-2xl font-bold text-primary mb-8">Showcase</h1>
-    <nav class="flex flex-col space-y-2">
-      <a href="#" class="text-secondary-foreground hover:text-primary transition-colors">Buttons</a>
-      <a href="#" class="text-secondary-foreground hover:text-primary transition-colors">Inputs</a>
-      <a href="#" class="text-secondary-foreground hover:text-primary transition-colors">Cards</a>
-      <a href="#" class="text-secondary-foreground hover:text-primary transition-colors">State (Signals)</a>
+  <aside class="w-72 bg-card/50 backdrop-blur-sm border-r border-border/50 flex flex-col shadow-lg">
+    <!-- Header -->
+    <div class="p-8 border-b border-border/50">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-lg">A</span>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-foreground">Angular Showcase</h1>
+          <p class="text-sm text-muted-foreground">Component Library</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 p-6 space-y-2">
+      <div class="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Components</div>
+      <a href="#buttons" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-all duration-200 group">
+        <div class="w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <span>Buttons</span>
+      </a>
+      <a href="#inputs" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-all duration-200 group">
+        <div class="w-2 h-2 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <span>Form Inputs</span>
+      </a>
+      <a href="#cards" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-all duration-200 group">
+        <div class="w-2 h-2 bg-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <span>Cards</span>
+      </a>
+      <a href="#table" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-all duration-200 group">
+        <div class="w-2 h-2 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <span>Data Tables</span>
+      </a>
+      <a href="#state" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-all duration-200 group">
+        <div class="w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <span>State Management</span>
+      </a>
     </nav>
-    <div class="mt-auto">
-      <button (click)="themeService.toggleTheme()" class="w-full flex items-center justify-center p-2 rounded-lg bg-secondary hover:bg-accent transition-colors">
-        <span *ngIf="!themeService.isDark()">Light Mode</span>
-        <span *ngIf="themeService.isDark()">Dark Mode</span>
+
+    <!-- Theme Toggle -->
+    <div class="p-6 border-t border-border/50">
+      <button
+        (click)="themeService.toggleTheme()"
+        class="w-full flex items-center justify-between p-4 rounded-lg bg-secondary/50 hover:bg-secondary transition-all duration-200 group"
+        [attr.aria-label]="themeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center" *ngIf="!themeService.isDark()">
+            <span class="text-white text-sm">☀</span>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center" *ngIf="themeService.isDark()">
+            <span class="text-white text-sm">🌙</span>
+          </div>
+          <span class="font-medium">{{ themeService.isDark() ? 'Dark' : 'Light' }} Mode</span>
+        </div>
+        <div class="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors">→</div>
       </button>
     </div>
   </aside>
 
   <!-- Main Content -->
-  <main class="flex-1 p-12 overflow-y-auto">
-    <div class="max-w-4xl mx-auto">
-      <section id="buttons" class="mb-16">
-        <h2 class="text-3xl font-extrabold text-primary mb-6 border-b border-border pb-2">Buttons</h2>
-        <div class="p-8 bg-card rounded-lg shadow-md">
-          <div class="flex flex-wrap gap-4 items-center">
-            <app-button>Primary</app-button>
-            <app-button variant="secondary">Secondary</app-button>
-            <app-button variant="outline">Outline</app-button>
-            <app-button [disabled]="true">Disabled</app-button>
+  <main class="flex-1 overflow-y-auto">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-br from-background via-background to-accent/10 p-12 border-b border-border/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center space-y-6">
+          <h1 class="text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            Modern Component Library
+          </h1>
+          <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            A comprehensive showcase of reusable Angular components built with Tailwind CSS.
+            Featuring clean design, dark mode support, and enterprise-ready functionality.
+          </p>
+          <div class="flex items-center justify-center space-x-4 pt-4">
+            <div class="flex items-center space-x-2 px-4 py-2 bg-green-500/10 text-green-600 rounded-full">
+              <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span class="text-sm font-medium">Angular 20+</span>
+            </div>
+            <div class="flex items-center space-x-2 px-4 py-2 bg-blue-500/10 text-blue-600 rounded-full">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span class="text-sm font-medium">Tailwind CSS v4</span>
+            </div>
+            <div class="flex items-center space-x-2 px-4 py-2 bg-purple-500/10 text-purple-600 rounded-full">
+              <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+              <span class="text-sm font-medium">TypeScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="max-w-6xl mx-auto p-12 space-y-20">
+      <!-- Buttons Section -->
+      <section id="buttons" class="scroll-mt-8">
+        <div class="flex items-center space-x-4 mb-8">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">B</span>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-foreground">Interactive Buttons</h2>
+            <p class="text-muted-foreground">Versatile button components with multiple variants and states</p>
+          </div>
+        </div>
+        <div class="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-lg">
+          <div class="space-y-6">
+            <div class="flex flex-wrap gap-4 items-center">
+              <app-button>Primary Action</app-button>
+              <app-button variant="secondary">Secondary</app-button>
+              <app-button variant="outline">Outline Style</app-button>
+              <app-button [disabled]="true">Disabled State</app-button>
+            </div>
+            <div class="pt-4 border-t border-border/30">
+              <p class="text-sm text-muted-foreground">
+                <strong>Features:</strong> Multiple variants • Hover effects • Focus states • Disabled handling • Fully accessible
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="inputs" class="mb-16">
-        <h2 class="text-3xl font-extrabold text-primary mb-6 border-b border-border pb-2">Inputs</h2>
-        <div class="p-8 bg-card rounded-lg shadow-md">
-          <div class="space-y-6 max-w-sm">
-            <app-input placeholder="Standard Input"></app-input>
-            <app-input type="password" placeholder="Password Input"></app-input>
+      <!-- Inputs Section -->
+      <section id="inputs" class="scroll-mt-8">
+        <div class="flex items-center space-x-4 mb-8">
+          <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">I</span>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-foreground">Form Inputs</h2>
+            <p class="text-muted-foreground">Beautiful form inputs with focus states and validation support</p>
+          </div>
+        </div>
+        <div class="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-lg">
+          <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
+              <div class="space-y-2">
+                <label class="text-sm font-medium text-foreground">Email Address</label>
+                <app-input placeholder="Enter your email"></app-input>
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-medium text-foreground">Password</label>
+                <app-input type="password" placeholder="Enter password"></app-input>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-border/30">
+              <p class="text-sm text-muted-foreground">
+                <strong>Features:</strong> Smooth focus transitions • Consistent styling • Type safety • Responsive design
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="state" class="mb-16">
-        <h2 class="text-3xl font-extrabold text-primary mb-6 border-b border-border pb-2">State Management (Signals)</h2>
-        <div class="p-8 bg-card rounded-lg shadow-md">
+      <!-- Cards Section -->
+      <section id="cards" class="scroll-mt-8">
+        <div class="flex items-center space-x-4 mb-8">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">C</span>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-foreground">Content Cards</h2>
+            <p class="text-muted-foreground">Flexible card containers for organizing content</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <app-card>
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
+              <h3 class="text-lg font-semibold">Feature Card</h3>
+              <p class="text-muted-foreground">Example card showcasing the flexible content structure and styling capabilities.</p>
+            </div>
+          </app-card>
+          <app-card>
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg"></div>
+              <h3 class="text-lg font-semibold">Another Card</h3>
+              <p class="text-muted-foreground">Cards adapt to their content while maintaining consistent spacing and theming.</p>
+            </div>
+          </app-card>
+          <app-card>
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg"></div>
+              <h3 class="text-lg font-semibold">Third Example</h3>
+              <p class="text-muted-foreground">Perfect for dashboards, feature lists, or any content organization needs.</p>
+            </div>
+          </app-card>
+        </div>
+      </section>
+
+      <!-- Data Table Section -->
+      <section id="table" class="scroll-mt-8">
+        <div class="flex items-center space-x-4 mb-8">
+          <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">T</span>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-foreground">Data Tables</h2>
+            <p class="text-muted-foreground">Advanced table component with nested data support and toolbar integration</p>
+          </div>
+        </div>
+        <div class="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden shadow-lg">
+          <app-table-toolbar>
+            <div toolbar-title class="flex items-center space-x-3">
+              <h3 class="text-xl font-semibold text-foreground">Project Management</h3>
+              <span class="px-2 py-1 bg-blue-500/10 text-blue-600 rounded-full text-xs font-medium">{{ projects.length }} items</span>
+            </div>
+            <div toolbar-actions class="flex items-center space-x-3">
+              <app-input placeholder="Search projects..." class="w-64"></app-input>
+              <app-button>Add New Project</app-button>
+            </div>
+          </app-table-toolbar>
+          <app-table [items]="projects" [columns]="projectColumns"></app-table>
+        </div>
+        <div class="mt-6 p-6 bg-muted/20 rounded-xl">
+          <p class="text-sm text-muted-foreground">
+            <strong>Advanced Features:</strong> Nested data handling • Custom cell renderers • Responsive design • Integrated toolbar • Hover effects
+          </p>
+        </div>
+      </section>
+
+      <!-- State Management Section -->
+      <section id="state" class="scroll-mt-8">
+        <div class="flex items-center space-x-4 mb-8">
+          <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">S</span>
+          </div>
+          <div>
+            <h2 class="text-3xl font-bold text-foreground">State Management</h2>
+            <p class="text-muted-foreground">Demonstrating Angular Signals for reactive state management</p>
+          </div>
+        </div>
+        <div class="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-lg">
           <div class="flex items-center justify-between">
-            <p class="text-lg">Count: <span class="font-bold text-primary">{{ state.count() }}</span></p>
-            <app-button (click)="state.increment()">Increment</app-button>
+            <div class="space-y-2">
+              <p class="text-sm text-muted-foreground">Current Counter Value</p>
+              <div class="flex items-center space-x-4">
+                <span class="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  {{ state.count() }}
+                </span>
+                <div class="text-muted-foreground">
+                  <p class="text-sm">Updates reactively</p>
+                  <p class="text-xs">using Angular Signals</p>
+                </div>
+              </div>
+            </div>
+            <app-button (click)="state.increment()">Increment Counter</app-button>
           </div>
         </div>
-      </section>
-
-      <section id="table" class="mb-16">
-        <h2 class="text-3xl font-extrabold text-primary mb-6 border-b border-border pb-2">Reusable Table</h2>
-        <app-table-toolbar>
-          <h3 toolbar-title class="text-xl font-semibold text-primary">Projects</h3>
-          <div toolbar-actions>
-            <app-input placeholder="Search projects..."></app-input>
-            <app-button>Add Project</app-button>
-          </div>
-        </app-table-toolbar>
-        <app-table [items]="projects" [columns]="projectColumns"></app-table>
       </section>
     </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-border/50 bg-muted/20 p-12 mt-20">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-muted-foreground">
+          Built with Angular 20+ and Tailwind CSS v4 • Showcasing modern component architecture
+        </p>
+      </div>
+    </footer>
   </main>
 </div>
